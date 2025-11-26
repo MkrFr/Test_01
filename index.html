@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conto alla Rovescia di Natale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Outfit:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="snow-container"></div>
+
+    <main class="container">
+        <header>
+            <h1>🎄 Conto alla Rovescia di Natale 🎄</h1>
+            <p class="subtitle">Ogni minuto conta!</p>
+        </header>
+
+        <section class="card live-counter">
+            <h2>Mancano esattamente</h2>
+            <div class="counter-display">
+                <span id="live-minutes">0</span>
+                <span class="label">Minuti</span>
+            </div>
+            <p id="live-date-target" class="target-date">al prossimo Natale</p>
+        </section>
+
+        <section class="card custom-calculator">
+            <h2>Calcola da una data</h2>
+            <div class="input-group">
+                <label for="custom-date">Scegli una data:</label>
+                <input type="datetime-local" id="custom-date">
+            </div>
+
+            <div id="custom-result" class="result hidden">
+                <p>Da quella data mancheranno:</p>
+                <div class="counter-display small">
+                    <span id="custom-minutes">0</span>
+                    <span class="label">Minuti</span>
+                </div>
+                <p id="custom-target-info" class="target-date"></p>
+            </div>
+        </section>
+
+        <button id="music-control" class="music-btn" aria-label="Play Music">🔇</button>
+        <audio id="bg-music" loop>
+            <source src="https://actions.google.com/sounds/v1/holidays/jingle_bells.ogg" type="audio/ogg">
+            Your browser does not support the audio element.
+        </audio>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

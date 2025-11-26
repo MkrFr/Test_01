@@ -1,0 +1,250 @@
+:root {
+    --primary-red: #D42426;
+    --primary-green: #165B33;
+    --gold: #F8B229;
+    --snow: #F0F2F5;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --text-dark: #1a1a1a;
+    --text-light: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Snow Effect Background */
+.snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+        radial-gradient(4px 4px at 100px 50px, #fff, transparent),
+        radial-gradient(6px 6px at 200px 150px, #fff, transparent),
+        radial-gradient(3px 3px at 300px 250px, #fff, transparent),
+        radial-gradient(4px 4px at 400px 350px, #fff, transparent);
+    background-size: 550px 550px;
+    animation: snow 10s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes snow {
+    0% {
+        background-position: 0 0, 0 0, 0 0, 0 0;
+    }
+
+    100% {
+        background-position: 550px 550px, 400px 400px, 300px 300px, 200px 200px;
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 40px;
+    animation: fadeInDown 1s ease-out;
+}
+
+h1 {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 3.5rem;
+    color: var(--gold);
+    text-shadow: 0 0 10px rgba(248, 178, 41, 0.5);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    letter-spacing: 1px;
+}
+
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--snow);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.counter-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#live-minutes,
+#custom-minutes {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--primary-red);
+    text-shadow: 2px 2px 0 #fff, 0 0 20px rgba(212, 36, 38, 0.5);
+    font-variant-numeric: tabular-nums;
+}
+
+.counter-display.small #custom-minutes {
+    font-size: 3.5rem;
+}
+
+.label {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: var(--gold);
+}
+
+.target-date {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+input[type="datetime-local"] {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-dark);
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="datetime-local"]:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 15px rgba(248, 178, 41, 0.3);
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.result {
+    animation: fadeIn 0.5s ease-out forwards;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    #live-minutes {
+        font-size: 3.5rem;
+    }
+}
+
+/* Music Button */
+.music-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--primary-red);
+    color: var(--text-light);
+    border: 2px solid var(--gold);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.music-btn:hover {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 0 25px rgba(248, 178, 41, 0.6);
+    background: var(--primary-green);
+}
+
+.music-btn:active {
+    transform: scale(0.95);
+}
